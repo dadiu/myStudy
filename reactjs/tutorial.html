@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2016-02-01</title>
+</head>
+<body>
+	<div id="gView">
+		
+	</div>
+	<script src="/lib/react-0.14.7/react.min.js"></script>
+  <script src="/lib/react-0.14.7/react-dom.min.js"></script>
+  <script src="/lib/browser.min.js"></script>
+	<script src="/lib/marked.min.js"></script>
+	<script src="/js/jquery-1.8.3.js"></script>
+	<script type="text/babel">
+		var data = [
+			{id : 3, author : "name3", text : "this is name three."},
+			{id : 4, author : "name4", text : "this is name four."}
+		],
+		CommentList = React.createClass({
+			render : function(){
+				var commentNodes = this.props.data.map(function(comment){
+					return(
+						<Comment author={comment.author} key={comment.id}>
+							{comment.text}
+						</Comment>
+					);
+				})
+				return (
+					<div className="commentList">
+						{commentNodes}
+					</div>
+				);
+			}
+		}),
+		CommentForm = React.createClass({
+			getInitialState: function() {
+				return {
+					author : '',
+					text : '' 
+				};
+			},
+			handleAuthorChange : function(e){
+				this.setState({author : e.target.value});
+			},
+			handleTextChange : function(e){
+				this.setState({text : e.target.value});
+			},
+			handleSumbit : function(e){
+				e.preventDefault();
+				//trim - 去除字符串左右两端的空格
+				var author = this.state.author.trim(),
+					text = this.state.text.trim();
+				if(!author || !text){ return; }
+				this.props.onCommontSubmit({author : author, text : text});
+				this.setState({author : '', text : ''});
+			},
+			render : function(){
+				return (
+					<form className="commentForm" onSubmit={this.handleSumbit}>
+						<input type="text" placeholder="Your name" value={this.state.author} onChange={this.handleAuthorChange}/>
+						<input type="text" placeholder="Your say..." value={this.state.text} onChange={this.handleTextChange}/>
+						<input type="submit" value="submit"/>
+					</form>
+				);
+			}
+		}),
+		CommentBox = React.createClass({
+			loadCommentsFormServer : function(){
+				var _t = this;
+				$.ajax({
+					url : _t.props.url,
+					dataType : 'json',
+					cache : false,
+					success : function(res){
+						_t.setState({data : res})
+					},
+					error : function(xhr, status, err){
+						console.log(_t.props.url, status, err.toString());
+					}
+				});
+			},
+			handleCommentSubmit : function(comment){
+				var _t = this;
+				$.ajax({
+					url : _t.props.url,
+					dataType : 'json',
+					type : 'POST',
+					data : comment,
+					success : function(res){
+						_t.setState({data:res});
+					},
+					error : function(xhr, status, err){
+						console.log(_t.props.url, status, err.toString());
+					}
+				});
+			},
+			getInitialState: function() {
+				return {
+					data : [] 
+				};
+			},
+			componentDidMount: function() {
+				this.loadCommentsFormServer();
+				//setInterval(this.loadCommentsFormServer, this.props.pollInterval);
+			},
+			render : function(){
+				//onCommontSubmit 赋值给子元素
+				return (
+					<div className="commentBox">
+						<h1>this is CommentBox</h1>
+						<CommentList data={this.state.data}/>
+						<CommentForm onCommontSubmit={this.handleCommentSubmit}/>
+					</div>
+				)
+			}
+		}),
+		Comment = React.createClass({
+			//防止tostring()报错
+			rawMarkup : function(){
+				var rawMarkup = marked(this.props.children.toString(), {sanitize : true});
+				return { __html: rawMarkup };
+			},
+			render : function(){
+				return (
+					<div className="commnet">
+						<h2 className="commentAuthor">
+							{this.props.author}
+						</h2>
+						<span dangerouslySetInnerHTML={this.rawMarkup()}/>
+					</div>
+				);
+			}
+
+
+		});
+
+		ReactDOM.render(
+			<CommentBox url="data/data_tutorial.json" pollInterval={2000}/>,
+			document.getElementById('gView')
+		);
+	</script>
+
+</body>
+</html>
