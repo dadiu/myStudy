@@ -10,7 +10,7 @@
 
 ## reactjs
 [官网练习1-tutorial](reactjs/tutorial.html) : 评论模块，reactjs的基础练习 <br/>
-学习地址：<http://facebook.github.io/react/docs/tutorial.html>
+原作者教程链接：<http://facebook.github.io/react/docs/tutorial.html>
 
 [官网练习2-thinkingInReact](reactjs/thinkingInReact.html) : 筛选搜索模块，reactjs的扩展练习 <br/>
-学习地址： <http://facebook.github.io/react/docs/thinking-in-react.html>
+原作者教程链接： <http://facebook.github.io/react/docs/thinking-in-react.html>
