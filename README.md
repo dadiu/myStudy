@@ -6,8 +6,8 @@
 
 
 ## canvas 
-- [当前时间小球显示] (canvas/countTime.md) - 学习地址：<http://www.imooc.com/learn/133>
+- [当前时间小球显示] (canvas/countTime/) - 学习地址：<http://www.imooc.com/learn/133>
 
 ## reactjs
-- [官网练习1-tutorial] (reactjs/tutorial.md) - 学习地址：<http://facebook.github.io/react/docs/tutorial.html>
-- [官网练习2-thinkingInReact] (reactjs/thinkingInReact.md) - 学习地址： <http://facebook.github.io/react/docs/thinking-in-react.html>
+- [官网练习1-tutorial] (reactjs/tutorial.html) - 学习地址：<http://facebook.github.io/react/docs/tutorial.html>
+- [官网练习2-thinkingInReact] (reactjs/thinkingInReact.html) - 学习地址： <http://facebook.github.io/react/docs/thinking-in-react.html>
