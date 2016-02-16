@@ -12,3 +12,6 @@
 
 [官网练习2-thinkingInReact](reactjs/thinkingInReact.html) : 筛选搜索模块，reactjs的扩展练习 <br/>
 原作者教程链接： <http://facebook.github.io/react/docs/thinking-in-react.html>
+
+[模仿腾讯微信充值](reactjs/TencentPay/index.html) : <br/>
+PS：练习中，未完结
