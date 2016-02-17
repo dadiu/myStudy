@@ -2,25 +2,161 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>pay</title>
+	<meta name="viewport" content="width=320px, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">
+	<title>DHPay</title>
 	<style>
-	* { font-size:12px; }
+	body, html { font-family:"arial"; font-size:10px; padding:0; margin:0; background:#efeff4; }
 	li, ul { padding:0; margin:0; list-style:none; }
-	#payBar { width:480px; margin:0 auto; background:#eee; }
 	.dn { display:none; }
-	.payTabHeader { border-bottom:1px solid #fff; }
-	.payTabHeader li { cursor:pointer; display:inline-block; width:33.333333%; text-align:center; line-height:48px; }
-	.payTabBody { padding:10px; }
-	.payTabBody li { line-height:40px; }
-	.payTabBody a { display:inline-block; width:80px; }
+	.payTabHeader { border-bottom:1px solid #fff; background:#fff; }
+	.payTabHeader li { cursor:pointer; display:inline-block; width:33.333333%; text-align:center; line-height:40px; }
+	.payTabHeader .crt { color:#08ba06; }
+	.payTabBody { padding-top:15px; }
+	.payTabBody ul { border-top:1px solid #dedede; margin-bottom:15px; }
+	.payTabBody li { position:relative; padding-left:10px; line-height:40px; background:#fff; border-bottom:1px solid #dedede; }
+	.payTabBody b { font-size:1.4rem; }
+	.payTabBody small { position:absolute; right:40px; top:0; height:40px; color:#686868; }
+	.payTabBody p { padding:0 10px; margin-bottom:10px; }
+
+	.priceBar { padding-left:10px; }
+	.priceItem { display:inline-block; width:20%; margin-right:3%; height:32px; border:1px solid #d6d6d6; line-height:32px; border-radius:5px; background:#fff; }
+	a.priceItem { text-align:center; text-decoration:none; color:#333; }
+	input.priceItem { padding:0 5px; }
 	</style>
 </head>
 <body>
 	<div id="payBar"></div>
 
-	<script src="../build/react.min.js"></script>
-	<script src="../build/react-dom.min.js"></script>
-	<script src="../build/browser.min.js"></script>
-	<script type="text/babel" src="js/wapPay.js"></script>
+<script src="../build/react.min.js"></script>
+<script src="../build/react-dom.min.js"></script>
+<script src="../build/browser.min.js"></script>
+<script type="text/babel">
+var PayBar, PayTabBar, PayTabHeader, PayTabBody, PayTabBodyQQ, PayTabBodyGame, PayTabBodySecver;
+
+PayBar = React.createClass({
+	render : function(){
+		return (
+			<div>
+				<PayTabBar>
+					<PayTabBodyQQ name="DHB" />
+					<PayTabBodyGame name="Game" />
+					<PayTabBodySecver name="Secver" />
+				</PayTabBar>
+			</div>
+		);
+	}
+})
+PayTabBar = React.createClass({
+	getInitialState: function() {
+		return {
+			currentIndex : 0
+		};
+	},
+	changeHeaderCurrent : function(index){
+		return this.state.currentIndex == index ? "crt" : "";
+	},
+	changeBodyCurrent : function(index){
+		return this.state.currentIndex == index ? "" : "dn";
+	},
+	render : function(){
+		var _t = this;
+
+		return (
+			<div>
+				<ul className="payTabHeader">
+					{React.Children.map(_t.props.children, function(el, index){
+						return (
+							<li className={_t.changeHeaderCurrent(index)} onClick={function(){_t.setState({currentIndex : index})}}>{el.props.name}</li>
+						)
+					})}
+				</ul>
+				<div className="payTabBody">
+					{React.Children.map(_t.props.children, function(el, index){
+						return (
+							<div className={_t.changeBodyCurrent(index)}>{el}</div>
+						)
+					})}
+				</div>
+			</div>
+		);
+
+
+				
+	}
+});
+
+PayTabBodyQQ = React.createClass({
+	getInitialState: function() {
+		return {
+			"qq" : 451404370,
+			"nickName" : "昵称",
+			"balance" : 4.02,
+			"payArr" : [10, 20, 100],
+			"endPay" : 0
+		};
+	},
+	handleChangeA : function(num,e){
+		this.setState({endPay : num});
+	},
+	handleChangeInput : function(e){
+		console.log(e.target);
+		this.setState({endPay : e.target.value});
+	},
+	handleSumbit : function(e){
+	},
+	render : function(){
+		var _t = this;
+		var PAYLISTHTML = this.state.payArr.map(function(num){
+			return <a href="javascript:;" className="priceItem" onClick={_t.handleChangeA.bind(this,num)}>{num}</a>
+		});
+
+		return (
+			<div>
+				<ul>
+					<li>
+						<b>{this.state.qq}</b>
+						<small>
+							{this.state.nickName}
+						</small>
+					</li>
+				</ul>
+				<p>
+					余额 ：{this.state.balance} Q币
+				</p>
+				<div className="priceBar">
+					{PAYLISTHTML}
+					<input onChange={this.handleChangeInput} placeholder="其他数额" className="priceItem"/>
+				</div>
+				<p>
+					{this.state.endPay*98/100}元（98折）
+				</p>
+				<p>
+					<button onSumbit={this.handleSumbit}>立即充值</button>
+				</p>
+			</div>
+		)
+	}
+});
+PayTabBodyGame = React.createClass({
+	render : function(){
+		return (
+			<div>game</div>
+		)
+	}
+});
+PayTabBodySecver = React.createClass({
+	render : function(){
+		return (
+			<div>secver</div>
+		)
+	}
+});
+
+ReactDOM.render(
+	<PayBar />,
+	document.getElementById("payBar")
+);
+
+	</script>
 </body>
 </html>
