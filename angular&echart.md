@@ -1,7 +1,38 @@
-angular模块引用echart快速开发
+# ums系统总结
+
+## angular模块引用echart(3.0.0)快速开发 - 暂时只做了pie + line + bar
 
 1. service.js
-//图表传入参数整合
+
+define(["angular"], function(angular){
+	var services = angular.module("common.services", []);
+	//接口集体处理处
+	services.factory("_getAjaxFn", function($http){
+		/*
+			@param {JSON} config 请求配置
+			@param {Function} fn 回调方法
+			@param {string} target 可选参数，如果携带则传入，如无携带则不传入。
+		*/
+		return function(config, fn, target){
+
+			target = target ? target : "";
+
+			$http(config)
+				.success(function(res){
+					//成功
+	        if(res.result === 1000){
+	            fn(res.data,target);
+	        };
+	
+	        //其他情况
+				})
+				.error(function(res){
+					console.log("error");
+				});
+		}
+	});
+
+	//图表传入参数整合
 	services.factory("_eChartDataFn", function(){
 		/*
 			@param {array} arr 传入数组[type,txt,subtext];
@@ -134,3 +165,42 @@ angular模块引用echart快速开发
 
 		return fn;
 	});
+
+	return services;
+});
+
+2. directives.js （依赖service.js / echarts.js）
+
+define([
+    'angular',
+    'echarts'
+], function(angular, echarts) {
+    var directives = angular.module("pay.directives", []);
+
+    //chartBody
+    directives.directive("payChartBody", ["_getAjaxFn","_eChartDataFn", function(_getAjaxFn, _eChartDataFn){
+        return {
+            restrict : "EA",
+            replace : true,
+            transclude : true,
+            //scope: true,
+            template : '<div style="height:300px;"></div>',
+            link : function(scope, el, attr, controller){
+                //console.log(controller);
+                _getAjaxFn({
+                    "method" : "get",
+                    "url" : attr.get,
+                    "cache" : false
+                },callFn,attr.target);
+
+                function callFn(data,target){
+                    var arr = target.split("|")
+                    echarts.init(el[0]).setOption(_eChartDataFn[arr[0]](arr, data));
+                };
+            }
+        }
+    }]);
+
+});
+
+3. 
