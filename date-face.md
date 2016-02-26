@@ -7,9 +7,9 @@
 - 推荐教程：<http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html>
 
 
-### 异步请求方法
+### 跨域
 
-### 原生JS请求
+### 原生JS 异步请求
 
 ### angular优缺点
 
