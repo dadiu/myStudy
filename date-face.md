@@ -32,4 +32,11 @@
 
 ### this
 
-### html css js DOM树渲染过程
+### html css js DOM树渲染过程 
+- 提问：为什么css可以写在前面，js不可以？
+- 回答：
+- 1. css（包括图片）是异步加载，js是同步（即产生阻塞，因为js可能会改变DOM结构，如：document.write("test")）; 
+- 2. js也许有可能会依赖css的读取，如：$("#Test").width();
+- 推荐教程：<http://www.jianshu.com/p/e141d1543143>
+
+
