@@ -30,7 +30,12 @@
 
 ### 巨大数组如何排序
 
-### this
+### this的用法
+- 1.纯粹的函数调用
+- 2.作为对象方法的调用
+- 3.作为构造函数调用
+- 4.apply调用（这里可能会扩展到call和bind，会问之间的差异）
+- 推荐教程：<http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html>
 
 ### html css js DOM树渲染过程 
 - 提问：为什么css可以写在前面，js不可以？
