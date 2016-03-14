@@ -15,3 +15,9 @@
 
 [模仿腾讯微信充值](reactjs/TencentPay/index.html) : <br/>
 PS：练习中，未完结
+
+
+## angularjs 
+[angular-route](angularjs/angular-route/index.html) : 原生angular-route的2级菜单demo,可以直接下载使用 <br/>
+原作者教程链接：<http://www.tuicool.com/articles/mMzAvy>
+
