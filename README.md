@@ -2,7 +2,7 @@
 ======
 
 ## canvas 
-[当前时间小球显示](canvas/index.html) : canvas画布练习时间变化，绘制小球，计算时间(原教程为倒计时，与这个代码不同) <br/>
+[当前时间小球显示](canvas/) : canvas画布练习时间变化，绘制小球，计算时间(原教程为倒计时，与这个代码不同) <br/>
 原作者教程链接：<http://www.imooc.com/learn/133>
   
 
@@ -13,11 +13,11 @@
 [官网练习2-thinkingInReact](reactjs/thinkingInReact.html) : 筛选搜索模块，reactjs的扩展练习 <br/>
 原作者教程链接： <http://facebook.github.io/react/docs/thinking-in-react.html>
 
-[模仿腾讯微信充值](reactjs/TencentPay/index.html) : <br/>
+[模仿腾讯微信充值](reactjs/TencentPay/) : <br/>
 PS：练习中，未完结
 
 
 ## angularjs 
-[angular-route](angularjs/angular-route/index.html) : 原生angular-route的2级菜单demo,可以直接下载使用 <br/>
+[angular-route](angularjs/angular-route/) : 原生angular-route的2级菜单demo,可以直接下载使用 <br/>
 原作者教程链接：<http://www.tuicool.com/articles/mMzAvy>
 
