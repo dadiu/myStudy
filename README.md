@@ -18,6 +18,6 @@ PS：练习中，未完结
 
 
 ## angularjs 
-[angular-route](angularjs/angular-route/) : 原生angular-route的2级菜单demo,可以直接下载使用 <br/>
+[angular-route](angularjs/angular-route/) : 原生angular-route的1级菜单demo,可以直接下载使用（注意需要模拟环境） <br/>
 原作者教程链接：<http://www.tuicool.com/articles/mMzAvy>
 
