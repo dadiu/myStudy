@@ -107,7 +107,7 @@ PayTabBodyQQ = React.createClass({
 				</p>
 				<div className="priceBar">
 					{PAYLISTHTML}
-					<input onChange={this.handleChangeInput} onFocus={this.handleChangeACss.bind(this,null)} placeholder="其他数额" className="priceItem" value={this.state.otherPrice}/>
+					<input onChange={this.handleChangeInput} onFocus={this.handleChangeACss.bind(this,null)} placeholder="其他数额" className="priceItem" value={this.state.otherPrice} type="tel"/>
 				</div>
 				<p>
 					{this.state.endPay*95/100}元（95折）
@@ -140,12 +140,12 @@ PayTabBodyGame = React.createClass({
 			console.log(gameList)
 		return (
 			<div>
-				<div><input placeholder="请输入游戏名称搜索" className="searchBar"/></div>
+				<div className="searchBar"><input placeholder="请输入游戏名称搜索"/></div>
 				<ul className="gameListBar">
 					{
 
 						Object.keys(gameList).map(function(item){
-							return (<li>{gameList[item]["name"]}</li>)
+							return (<li><img src={gameList[item]["logo"]}/>{gameList[item]["name"]}</li>)
 						})
 						
 					}
