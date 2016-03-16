@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=320px, initial-scale=1, maximum-scale=1,minimum-scale=1, user-scalable=no">
+	<title>DHPay</title>
+	<style>
+	body, html { font-family:"arial"; font-size:12px; padding:0; margin:0; background:#efeff4; }
+	li, ul { padding:0; margin:0; list-style:none; }
+	#payBar { max-width:640px; margin:0 auto; }
+
+	.dn { display:none; }
+	.payTabHeader { border-bottom:1px solid #fff; background:#fff; }
+	.payTabHeader li { cursor:pointer; display:inline-block; width:33.333333%; text-align:center; line-height:40px; }
+	.payTabHeader .crt { color:#08ba06; }
+	/*.payTabBody { padding-top:15px; }*/
+	.payTabBody ul { border-top:1px solid #dedede; margin-bottom:15px; }
+	.payTabBody li { position:relative; padding-left:10px; line-height:40px; background:#fff; border-bottom:1px solid #dedede; }
+	.payTabBody b { font-size:1.4rem; }
+	.payTabBody small { position:absolute; right:40px; top:0; height:40px; color:#686868; }
+	.payTabBody p { padding:0 10px; margin-bottom:10px; }
+
+	.priceBar { padding-left:10px; }
+	.priceItem { display:inline-block; width:20%; margin-right:3%; height:32px; border:1px solid #d6d6d6; line-height:32px; border-radius:5px; background:#fff; }
+	a.priceItem { text-align:center; text-decoration:none; color:#333; }
+	.priceItem.crt { background:#08ba06; color:#fff; }
+	input.priceItem { padding:0 5px; }
+
+	.btn { display:block; height:40px; line-height:40px; text-align:center; border-radius:5px; text-decoration:none; }
+	.bgc_green { background:#08ba06; color:#fff; }
+
+
+	.payTabBody_qb { padding-top:15px; }
+
+
+	.searchBar { border:0; width:100%; height:40px; line-height:40px; margin-bottom:15px; }
+	</style>
+</head>
+<body>
+	<div id="payBar"></div>
+
+<script src="http://whj.fayfox.com/lib/react-0.14.7/react.min.js"></script>
+<script src="http://whj.fayfox.com/lib/react-0.14.7/react-dom.min.js"></script>
+<script src="http://whj.fayfox.com/lib/browser.min.js"></script>
+<script type="text/javascript" src="http://pay.17m3.com/Wbsrv/getServerDataHandler.aspx"></script>
+<script type="text/babel" src="js/wapPay.js"></script>
+
+<!-- <script src="/lib/react-0.14.7/react.min.js"></script>
+<script src="/lib/react-0.14.7/react-dom.min.js"></script>
+<script src="/lib/browser.min.js"></script>
+<script type="text/babel" src="js/wapPay.js"></script> -->
+</body>
+</html>

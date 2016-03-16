@@ -5,7 +5,7 @@ PayBar = React.createClass({
 		return (
 			<div>
 				<PayTabBar>
-					<PayTabBodyQQ name="DHB" />
+					<PayTabBodyQQ name="QB" />
 					<PayTabBodyGame name="Game" />
 					<PayTabBodySecver name="Secver" />
 				</PayTabBar>
@@ -13,6 +13,8 @@ PayBar = React.createClass({
 		);
 	}
 })
+
+// TABBar
 PayTabBar = React.createClass({
 	getInitialState: function() {
 		return {
@@ -46,12 +48,11 @@ PayTabBar = React.createClass({
 				</div>
 			</div>
 		);
-
-
 				
 	}
 });
 
+// QB
 PayTabBodyQQ = React.createClass({
 	getInitialState: function() {
 		return {
@@ -59,26 +60,40 @@ PayTabBodyQQ = React.createClass({
 			"nickName" : "昵称",
 			"balance" : 4.02,
 			"payArr" : [10, 20, 100],
+			"otherPrice" : 0,
 			"endPay" : 0
 		};
 	},
 	handleChangeA : function(num,e){
 		this.setState({endPay : num});
+		this.setState({otherPrice : 0});
+	},
+	handleChangeACss : function(num,e){
+
+		if(typeof e === "object"){
+			if(this.state.otherPrice === 0){
+				this.setState({otherPrice : ""});
+			};
+			this.setState({endPay : 0});
+		};
+		return this.state.endPay === num ? "priceItem crt" : "priceItem";
 	},
 	handleChangeInput : function(e){
-		console.log(e.target);
+		this.setState({otherPrice : e.target.value});
 		this.setState({endPay : e.target.value});
 	},
-	handleSumbit : function(e){
+	//提交表单
+	handleSumbit : function(){
+		console.log(this.state.endPay);
 	},
 	render : function(){
 		var _t = this;
-		var PAYLISTHTML = this.state.payArr.map(function(num){
-			return <a href="javascript:;" className="priceItem" onClick={_t.handleChangeA.bind(this,num)}>{num}</a>
+		var PAYLISTHTML = this.state.payArr.map(function(num,index){
+			return <a href="javascript:;" className={_t.handleChangeACss(num)} onClick={_t.handleChangeA.bind(this,num)}>{num}</a>
 		});
 
 		return (
-			<div>
+			<div className="payTabBody_qb">
 				<ul>
 					<li>
 						<b>{this.state.qq}</b>
@@ -92,22 +107,50 @@ PayTabBodyQQ = React.createClass({
 				</p>
 				<div className="priceBar">
 					{PAYLISTHTML}
-					<input onChange={this.handleChangeInput} placeholder="其他数额" className="priceItem"/>
+					<input onChange={this.handleChangeInput} onFocus={this.handleChangeACss.bind(this,null)} placeholder="其他数额" className="priceItem" value={this.state.otherPrice}/>
 				</div>
 				<p>
-					{this.state.endPay*98/100}元（98折）
+					{this.state.endPay*95/100}元（95折）
 				</p>
 				<p>
-					<button onSumbit={this.handleSumbit}>立即充值</button>
+					<a href="javascript:;" onClick={this.handleSumbit} className="btn bgc_green">立即充值</a>
 				</p>
 			</div>
 		)
 	}
 });
+
+// game
 PayTabBodyGame = React.createClass({
+	getInitialState: function() {
+		return {
+			gameList : gameDataType
+		};
+	},
 	render : function(){
+		var gameList = gameDataType, GAMELISTHTML="";
+			
+			// function printList(){
+			// 	for(var key in gameList){
+			// 		console.log(gameList[key])
+			// 		GAMELISTHTML += <li>{gameList[key]}</li>
+			// 	};
+			// }
+			// printList();
+			console.log(gameList)
 		return (
-			<div>game</div>
+			<div>
+				<div><input placeholder="请输入游戏名称搜索" className="searchBar"/></div>
+				<ul className="gameListBar">
+					{
+
+						Object.keys(gameList).map(function(item){
+							return (<li>{gameList[item]["name"]}</li>)
+						})
+						
+					}
+				</ul>
+			</div>
 		)
 	}
 });
