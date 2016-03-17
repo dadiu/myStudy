@@ -137,6 +137,7 @@ PayTabBodyGame = React.createClass({
 			// 	};
 			// }
 			// printList();
+			//"https://static.m3guo.com/17m3/gameLogo/"
 			console.log(gameList)
 		return (
 			<div>
@@ -145,7 +146,8 @@ PayTabBodyGame = React.createClass({
 					{
 
 						Object.keys(gameList).map(function(item){
-							return (<li><img src={gameList[item]["logo"]}/>{gameList[item]["name"]}</li>)
+							console.log(item);
+							return (<li className="gameListBarItem"><img src={"https://static.m3guo.com/17m3/gameLogo/" +item+"_20x20.png"}/>{gameList[item]["name"]}</li>)
 						})
 						
 					}
