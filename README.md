@@ -22,6 +22,6 @@ PS：练习中，未完结
 原作者教程链接：<http://www.tuicool.com/articles/mMzAvy>
 
 ## 前端管理工具模板
-[gulp](gulp/README.md) : 可直接使用的gulp管理工具 <br/>
-
+[gulp](gulp/) : 可直接使用的gulp管理工具 <br/>
+说明文档：[戳这里](gulp/README.md)
 
