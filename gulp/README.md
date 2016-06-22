@@ -1,6 +1,7 @@
 
 版本说明
-- v 1.0.0 - 创建
+- v1.0.0 - 创建
+- v1.0.1 - gulp-minify-css已弃用，修改为gulp-clean-css
 
 
 依赖node
@@ -21,7 +22,7 @@
 **安装依赖的gulp插件**
 
 
-    npm install --save-dev run-sequence gulp-minify-css gulp-concat gulp-watch gulp-connect gulp-uglify gulp-rename gulp-clean gulp-if
+    npm install --save-dev run-sequence gulp-clean-css gulp-concat gulp-watch gulp-connect gulp-uglify gulp-rename gulp-clean gulp-if
 
 
 使用说明
