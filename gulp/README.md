@@ -1,4 +1,4 @@
-<p style="background:red; color:white;">待解决问题：css压缩后，每个样式的最后一个;消失报错。</p>
+<mark>待解决问题：css压缩后，每个样式的最后一个;消失报错。</mark>
 
 
 版本说明
@@ -28,7 +28,7 @@
 
 使用说明
 -
-**启动服务，成功后可访问 localhost:8000/devlopment/ ** 
+**启动服务，成功后可访问localhost:8000/devlopment/** 
 
 
     gulp default
