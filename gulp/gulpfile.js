@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	runSequence = require("run-sequence");
 
-var mincss = require('gulp-minify-css'),
+var mincss = require('gulp-clean-css'),
 	concat = require('gulp-concat'),
 	watch = require('gulp-watch'),
 	connect = require('gulp-connect'), 
@@ -30,7 +30,12 @@ gulp.task("buildCss", function(){
 	var _path = isPublish?publishPath:devlopPath;
 
 	return gulp.src("src/styles/*.css")
-		.pipe(mincss())
+		.pipe(mincss({
+			"compatibility" : "ie6",		//保留ie6及以上兼容写法
+			"advanced" : false,				//类型：Boolean 默认：true [是否开启高级优化（合并选择器等）
+			"keepBreaks" : true,			//类型：Boolean 默认：false [是否保留换行]
+            "keepSpecialComments" : "*"		//保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀
+		}))
 		.pipe(rename({suffix: ".min"}))
 		.pipe(gulp.dest(_path+"build/styles/"));
 });
@@ -63,15 +68,8 @@ gulp.task("watch", function(){
 gulp.task("webserver", function(){
 	connect.server({
 		livereload : true,
-		port : 80,
-		root: ['.', '.tmp']
+		port : 8000
 	});
-});
-
-gulp.task("livereload", function(){
-	gulp.src(["src/js/*.js", "src/styles/*.css"])
-		.pipe(watch())
-		.pipe(connect.reload());
 });
 
 gulp.task("devlop", function(done){
@@ -80,7 +78,7 @@ gulp.task("devlop", function(done){
 
 gulp.task("publish", function(done){
 	isPublish = true;
-	runSequence("clean", ["concatAndBuildJs", "buildCss", "copyFiles"], "cleanTemp", done);
+	runSequence("clean", ["concatAndBuildJs", "buildCss", "copyFiles", "clean"], "cleanTemp", done);
 });
 
 gulp.task("default", function(done){
