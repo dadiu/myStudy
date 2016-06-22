@@ -21,3 +21,7 @@ PS：练习中，未完结
 [angular-route](angularjs/angular-route/) : 原生angular-route的1级菜单demo,可以直接下载使用（注意需要模拟环境） <br/>
 原作者教程链接：<http://www.tuicool.com/articles/mMzAvy>
 
+## 前端管理工具模板
+[gulp](gulp/README.md) : 可直接使用的gulp管理工具 <br/>
+
+
