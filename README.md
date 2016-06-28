@@ -24,3 +24,6 @@ PS：练习中，未完结
 ## 前端管理工具模板
 [gulp : 可直接使用的gulp管理工具](gulp/) <br/>
 
+
+## 共用模块
+[低版本浏览器提示-IE6](demo/LOWIEPROMPT.md) <br/>
