@@ -2,6 +2,13 @@
 版本说明
 - v1.0.0 - 创建
 
+**JS说明**
+
+目前仅针对IE6提示，如需增加后期可加。
+
+[下载地址](publish/build/js/lowIePrompt.min.js)
+
+
 
 **依赖**
 
