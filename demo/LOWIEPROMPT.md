@@ -4,7 +4,7 @@
 
 **JS说明**
 
-目前仅针对IE6提示，如需增加后期可加。
+IE6浏览器时，页面出现demo;如果不是，则不运行js
 
 [下载地址](publish/build/js/lowIePrompt.min.js)
 
