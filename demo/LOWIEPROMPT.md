@@ -7,9 +7,9 @@
 IE6浏览器时，页面出现demo;如果不是，则不运行js
 
 
-[源码](publish/build/js/lowIePrompt.min.js)
+[源码](src/js/lowIePrompt.js)
 
-[压缩](src/js/lowIePrompt.js)
+[压缩](publish/build/js/lowIePrompt.min.js)
 
 
 **依赖**
