@@ -24,12 +24,12 @@
 				if(!isIe){ 
 					return false;
 				};
-				//判断浏览器版本 大于等于IE7则返回
-				//agent.match(regStr_ie) != "msie 7.0;"
-				if(agent.match(regStr_ie) != "msie 6.0;" && agent.match(regStr_ie) != "msie 5.5;"){
+
+				//判断浏览器版本 大于等于IE8则返回
+				if(agent.match(regStr_ie) != "msie 7.0;" && agent.match(regStr_ie) != "msie 6.0;" && agent.match(regStr_ie) != "msie 5.5;"){
 					return false;
 				};
-
+				
 				var urlParams = this.urlFn();
 				if(urlParams["z"]){ css_zindex = urlParams["z"] };
 
