@@ -5,7 +5,7 @@
 
 **JS说明**
 
-IE6浏览器时，页面出现demo;如果不是，则不运行js
+IE7浏览器时，页面出现demo;如果不是，则不运行js
 
 
 [源码](src/js/lowIePrompt.js)
