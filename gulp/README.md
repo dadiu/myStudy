@@ -13,7 +13,7 @@
     npm install -g gulp
 
 
-**cd到项目文件夹 安装项目gulp**
+**cd到项目文件夹 安装相关依赖**
 
     npm install
 
