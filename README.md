@@ -22,7 +22,7 @@ PS：练习中，未完结
 原作者教程链接：<http://www.tuicool.com/articles/mMzAvy>
 
 ## 前端管理工具模板
-[gulp : 可直接使用的gulp管理工具](gulp/) <br/>
+gulp : 可直接使用的gulp管理工具（刚发现在这玩意不能用！！） <br/>
 
 
 ## 共用模块
