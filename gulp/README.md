@@ -15,14 +15,7 @@
 
 **cd到项目文件夹 安装项目gulp**
 
-
-    npm install --save-dev gulp
-
-
-**安装依赖的gulp插件**
-
-
-    npm install --save-dev run-sequence gulp-clean-css gulp-concat gulp-watch gulp-connect gulp-uglify gulp-rename gulp-clean gulp-if
+    npm install
 
 
 使用说明
