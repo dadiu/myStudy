@@ -1,4 +1,4 @@
-放一些日常学习产出的源码
+放一些日常产出的源码
 ======
 
 ## canvas 
@@ -22,5 +22,8 @@ PS：练习中，未完结
 原作者教程链接：<http://www.tuicool.com/articles/mMzAvy>
 
 ## 前端管理工具模板
-[gulp : 可直接使用的gulp管理工具](gulp/) <br/>
+gulp : 可直接使用的gulp管理工具（刚发现在这玩意不能用！！） <br/>
 
+
+## 共用模块
+[低版本浏览器提示-IE6](demo/LOWIEPROMPT.md) <br/>
