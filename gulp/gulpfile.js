@@ -2,6 +2,7 @@ var gulp = require('gulp'),
 	runSequence = require("run-sequence");
 
 var mincss = require('gulp-clean-css'),
+	minImg = require('gulp-imagemin'),
 	concat = require('gulp-concat'),
 	watch = require('gulp-watch'),
 	connect = require('gulp-connect'), 
@@ -38,6 +39,14 @@ gulp.task("buildCss", function(){
 		}))
 		.pipe(rename({suffix: ".min"}))
 		.pipe(gulp.dest(_path+"build/styles/"));
+});
+
+gulp.task("buildImg", function(){
+	var _path = isPublish?publishPath:devlopPath;
+
+	return gulp.src("img/*.{png,jpg,gif,ico}")
+		.pipe(minImg())
+		.pipe(gulp.dest(_path+"img/"));
 });
 
 gulp.task("copyFiles", function(){
