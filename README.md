@@ -1,6 +1,15 @@
 放一些日常产出的源码
 ======
 
+## node.js 
+[爬虫](node/crawler.js) : 依赖 'cheerio'， 可以先 'npm install cheerio'<br/>
+原作者教程链接：<http://www.imooc.com/video/7965>
+[监听绑定](node/event.js) <br/>
+原作者教程链接：<http://www.imooc.com/video/8525>
+[评论](node/comments.js) : comments.js<br/>
+原作者教程链接：<http://www.imooc.com/video/8837>
+
+
 ## canvas 
 [当前时间小球显示](canvas/) : canvas画布练习时间变化，绘制小球，计算时间(原教程为倒计时，与这个代码不同) <br/>
 原作者教程链接：<http://www.imooc.com/learn/133>
