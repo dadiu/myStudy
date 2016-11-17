@@ -3,11 +3,11 @@
 
 ## node.js 
 [爬虫](node/crawler.js) : 依赖 'cheerio'， 可以先 'npm install cheerio'<br/>
-原作者教程链接：<http://www.imooc.com/video/7965>
+原作者教程链接：<http://www.imooc.com/video/7965><br/>
 [监听绑定](node/event.js) <br/>
-原作者教程链接：<http://www.imooc.com/video/8525>
+原作者教程链接：<http://www.imooc.com/video/8525><br/>
 [评论](node/comments.js) : comments.js<br/>
-原作者教程链接：<http://www.imooc.com/video/8837>
+原作者教程链接：<http://www.imooc.com/video/8837><br/>
 
 
 ## canvas 
