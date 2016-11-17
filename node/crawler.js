@@ -1,5 +1,5 @@
 var http = require('http');
-var cheerio = require('cheerio');
+var cheerio = require('cheerio');	//  'npm install cheerio'
 var url = 'http://www.imooc.com/learn/348';
 
 function filterChapters(html){
