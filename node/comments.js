@@ -37,7 +37,7 @@ var options = {
 		'Connection' : 'keep-alive',
 		'Content-Length' : postData.length,
 		'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-		'Cookie' : '这个不能给，需要自己看教程去拿 -2- ',
+		'Cookie' : 'imooc_uuid=bd5c23b7-9430-444b-95d7-abe38ab2daa0; imooc_isnew_ct=1476163826; loginstate=1; apsid=dmYWVkNDM3MDY2YTg0MzljZjA0OWZlYmYzZmQ2ZTIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMTYyMjEyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0NTE0MDQzNzBAcXEuY29tAAAAAAAAAAAAAAAAAAAAAGY1ZDgwMzVmNDljZmNmOGMzMjM4ODhjNjQ2NWE3YWM1%2BR4pWPkeKVg%3DOT; last_login_username=451404370%40qq.com; PHPSESSID=u1bph9gn4j3fvt3kqfsbse20p6; jwplayer.qualityLabel=é«æ¸; jwplayer.volume=86; imooc_isnew=2; cvde=582d0a3bc89c3-40; IMCDNS=0; Hm_lvt_f0cfcccd7b1393990c78efdeebff3968=1478136956,1479089800,1479267142,1479346713; Hm_lpvt_f0cfcccd7b1393990c78efdeebff3968=1479364933',
 		'Host' : 'www.imooc.com',
 		'Origin' : 'http://www.imooc.com',
 		'Referer' : 'http://www.imooc.com/video/8837',
