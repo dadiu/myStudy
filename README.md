@@ -8,7 +8,7 @@
 原作者教程链接：<http://www.imooc.com/video/8525><br/>
 [评论](node/comments.js) : request方法<br/>
 原作者教程链接：<http://www.imooc.com/video/8837><br/>
-[promise](promise/ball.html) : promise-小球运动方式<br/>
+[promise](node/promise/ball.html) : promise-小球运动方式-依赖bluebird，可以先'npm install bluebird'<br/>
 原作者教程链接：<http://www.imooc.com/video/11549><br/>
 
 
