@@ -12,6 +12,11 @@
 原作者教程链接：<http://www.imooc.com/video/11549><br/>
 [promise重写爬虫](node/promise_c.js) : 依赖bluebird 和 cheerio<br/>
 原作者教程链接：<http://www.imooc.com/video/11551><br/>
+[buffer-base64](node/buffer/buffer.js) : 图片转码，需要一个logo.png图片<br/>
+原作者教程链接：<http://www.imooc.com/video/11553><br/>
+[stream](node/stream/stream_copy_logo.js) : 学习流的实例
+原作者教程链接：<http://www.imooc.com/video/11553><br/>
+
 
 
 ## canvas 

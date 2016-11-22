@@ -31,6 +31,6 @@ promise_c.js
 
 
 
-## buffer
-buffer.js
+## buffer - 转base64编码
+buffer/buffer.js
 
