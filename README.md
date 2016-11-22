@@ -10,6 +10,8 @@
 原作者教程链接：<http://www.imooc.com/video/8837><br/>
 [promise](node/promise/ball.html) : promise-小球运动方式-依赖bluebird，可以先'npm install bluebird'<br/>
 原作者教程链接：<http://www.imooc.com/video/11549><br/>
+[promise重写爬虫](node/promise_c.js) : 依赖bluebird 和 cheerio<br/>
+原作者教程链接：<http://www.imooc.com/video/11551><br/>
 
 
 ## canvas 
