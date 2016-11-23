@@ -34,3 +34,7 @@ promise_c.js
 ## buffer - 转base64编码
 buffer/buffer.js
 
+
+
+## stream - 
+stream
