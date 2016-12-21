@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sample template</title>
+</head>
+<body>
+	<ul id="mylist">
+		<script type="text/x-my-template" id="list-item">
+			
+			<li>
+				<a href="%s">%s</a>
+				<b>%s</b>
+			</li>
+			
+		</script>
+	</ul>
+
+	<script type="text/javascript">
+		// 替换模板
+		function sprintf(txt) {
+			var  i=1, args=arguments;
+			 console.log(args);
+			return txt.replace(/%s/g, function() {
+				return (i < args.length ? args[i++]: '');
+			});
+		};
+
+		// 格式化并插入
+		function addItem(url, txt, b) {
+			// console.log(url);
+			var mylist = document.getElementById('mylist'),
+				script = document.getElementById('list-item'),
+				templateText = script.text,
+				result = sprintf(templateText, url, txt, b),
+				div = document.createElement('div');
+
+				div.innerHTML = result.replace(/^\s*/, '');
+				mylist.appendChild(div.firstChild);
+				//console.log(script.text);
+		};
+
+		// 待扩展遍历替换
+
+		addItem('/item/4', 'Forth item', 'strong');
+
+	</script>
+</body>
+</html>
