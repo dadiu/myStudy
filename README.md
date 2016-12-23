@@ -1,11 +1,6 @@
 放一些日常产出的源码
 ======
 
-## 《编写可维护的javascript》
-[简单的替换模板]（sample-tamplate/index.html）: '''待扩展遍历数组or对象替换'''
-
-
-
 
 
 ## node.js + mongodb 
