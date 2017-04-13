@@ -1,6 +1,5 @@
 'use strict'
 
-var sha1 = require('sha1');
 var Promise = require('bluebird');
 var request = Promise.promisify(require('request'));
 
@@ -37,7 +36,7 @@ function Wechat(opts){
             // 判断票据是否在有效期内 检查合法性
             if(that.isValidAccessToken(data)){
                 // 如果合法 传下去
-                Promise.resolve(data);
+                return Promise.resolve(data);
             }
             else {
                 // 如果不合法过期 则更新票据
@@ -45,7 +44,7 @@ function Wechat(opts){
             }
         })
         .then(function(data){   // 最终票据结果
-            
+
             // 把access_token挂到实例上
             that.access_token = data.access_token;
 
@@ -61,6 +60,7 @@ function Wechat(opts){
 // 合法性检查
 Wechat.prototype.isValidAccessToken = function(data){
 
+
     // 验证是否存在
     if(!data || !data.access_token || !data.expires_in){
         return false;
@@ -68,7 +68,7 @@ Wechat.prototype.isValidAccessToken = function(data){
 
     var access_token = data.access_token;
     var expires_in = data.expires_in;
-    var now = (new Date().getTime());
+    var now = (new Date().getTime());    
 
     if(now < expires_in) {
         // 未过期
@@ -95,6 +95,8 @@ Wechat.prototype.updateAccessToken = function(){
             json : true
         }).then(function(response){
 
+            // console.log(response);
+
             var data = response.body;
             var now = (new Date().getTime());
 
@@ -109,4 +111,7 @@ Wechat.prototype.updateAccessToken = function(){
         })
     });
 
-}
+};
+
+
+module.exports = Wechat;

@@ -4,7 +4,17 @@
 - [视频地址](http://coding.imooc.com/learn/list/38.html)
 
 
-# 心得
+## 学习笔记
+#### 2.7 撸一个自动回复
+- 过程
+    - step1: 处理POST类型的控制逻辑，接受这个XML的数据包
+    - step2: 解析这个数据包（获得数据包的消息类型或者事件类型）
+    - step3: 拼装我们定义好的消息
+    - step4: 包装成XML的格式
+    - step5: 在5秒钟内返回回去
+- 笔记
+    - 通过这个row-body模块，可以把这个this上的request对象，其实也就是http模块中的request对象，去拼装它的数据，最终可以拿到一个buffer的xml数据
+
 
 
 ## 补充

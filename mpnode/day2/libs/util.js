@@ -5,16 +5,18 @@ var Promise = require('bluebird');
 
 
 // 读取文件
-exports.readFileAsync = function(fpath, encodeing){
+exports.readFileAsync = function(fpath, encoding){
 
     return new Promise(function(resolve, reject){
-        fs.readFile(fpath, encodeing, function(err, content){
+        fs.readFile(fpath, encoding, function(err, content){
+            // console.log("err : " + JSON.stringify(err));
             if(err){
                 reject(err);
             }
             else {
-                resolve(content);
-                
+
+                // console.log("content : " + JSON.stringify(content));
+                resolve(content);   
             }
         })
     })
