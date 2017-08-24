@@ -4,11 +4,12 @@
 
 ## koa
 - [Koa 框架](koa/)
-    - [教程地址](http://www.ruanyifeng.com/blog/2017/08/koa.html)
+    + [阮一峰教程地址](http://www.ruanyifeng.com/blog/2017/08/koa.html)
+    + [koa官网](http://koa.bootcss.com/)
 
 ## browser-sync
 - [browser-sync+gulp](browser-sync/)
-    - 支持sass,js合并压缩,实时预览等
+    + 支持sass,js合并压缩,实时预览等
 
 
 ## node.js 

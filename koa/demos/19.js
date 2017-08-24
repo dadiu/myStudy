@@ -1,11 +1,11 @@
 const Koa = require('koa');
 const app = new Koa();
 
-const main = cxt =>{
-    let num = Number(cxt.cookies.get('views') || 0) + 1;
-    cxt.cookies.set('views', num);
-    cxt.response.type = 'html';
-    cxt.response.body = '刷新了'+ num + '次';
+const main = ctx =>{
+    let num = Number(ctx.cookies.get('views') || 0) + 1;
+    ctx.cookies.set('views', num);
+    ctx.response.type = 'html';
+    ctx.response.body = '刷新了'+ num + '次';
 }
 
 app.use(main);

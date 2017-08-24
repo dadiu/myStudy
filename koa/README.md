@@ -30,17 +30,12 @@ Koa 框架
 
 - 路由 [实例：06](demos/06.js)
 
-    ```js
-    npm install --save-dev koa-route
-    ```
-    
+    + koa-route   
+
 
 - 静态资源 - [实例：12](demos/12.js)
+    + koa-static
 
-    ```js
-    npm install --save-dev koa-static
-    ```
-   
 
 - 重定向 - [实例：13](demos/13.js)
 
@@ -69,7 +64,7 @@ Koa 框架
 
 - 处理错误的中间件 : 为了方便处理错误，最好使用``try...catch``将其捕获。但是，为每个中间件都写``try...catch``太麻烦，我们可以让最外层的中间件，负责所有中间件的错误处理。[实例：16  注释部分eg16](demos/14.js)
 
-- error 事件的监听 ： 使用``cxt.response.status = 500;``  error事件捕捉不到。[实例：17 未注释部分eg17](demos/14.js)
+- error 事件的监听 ： 使用``ctx.response.status = 500;``  error事件捕捉不到。[实例：17 未注释部分eg17](demos/14.js)
 
 - 释放 error 事件 ： 如果错误被``try...catch``捕获，就不会触发``error事件``。这时，必须调用``ctx.app.emit()``，手动释放error事件，才能让监听函数生效。[实例：18](demos/18.js)
 
@@ -78,8 +73,40 @@ Koa 框架
 ## 五、Web App 的功能
 
 - Cookies : ``ctx.cookies``用来读写 Cookie [实例19](demos/19.js)
-    + cxt.cookies.get()
-    + cxt.cookies.set()
+    + ctx.cookies.get(name, [options])
+    + ctx.cookies.set(name, value, [options])
+    + options 为可选参数：
+        - ``signed`` : 如果为 true，表示请求时 cookie 需要进行签名
+        - ``expires`` : cookie 有效期时间
+        - ``path`` : cookie 的路径，默认为 /'
+        - ``domain`` : cookie 的域
+        - ``secure`` : false 表示 cookie 通过 HTTP 协议发送，true 表示 cookie 通过 HTTPS 发送。
+        - ``httpOnly`` : true 表示 cookie 只能通过 HTTP 协议发送
 
 
 - 表单
+    + koa-body
+    + [实例20](demos/20.js)
+
+- 文件上传
+    + koa-body
+    + [实例21](demos/21.js)
+
+
+## 六、设置签名Cookie密钥，该密钥会被传递给 ``KeyGrip``
+    
+- 自己生成 KeyGrip 实例
+
+    ```js
+
+    app.keys = ['im a newer secret', 'i like turtle'];
+    app.keys = new KeyGrip(['im a newer secret', 'i like turtle'], 'sha256');
+
+    ```
+- 在进行cookie签名时，只有设置 signed 为 true 的时候，才会使用密钥进行加密：
+
+    ```js
+    
+    this.cookies.set('name', 'tobi', { signed: true });
+
+    ```

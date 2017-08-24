@@ -2,44 +2,44 @@ const Koa = require('koa');
 const app = new Koa();
 
 // eg14 500 错误
-// const main = cxt =>{
-//     cxt.throw(500);
+// const main = ctx =>{
+//     ctx.throw(500);
 // }
 
 
 
 // eg15 404错误
-// const main = cxt =>{
-//     cxt.response.status = 404;
-//     cxt.response.body = 'Not Found'
+// const main = ctx =>{
+//     ctx.response.status = 404;
+//     ctx.response.body = 'Not Found'
 // }
 
 
 
 // eg16 try...catch...
-// const handdle = async (cxt, next) => {  
+// const handdle = async (ctx, next) => {  
 //     try{
 //         await next();
 //     } catch(err) {
-//         cxt.response.status = err.statusCode || err.status || 500;
-//         cxt.response.body = err.message;       
+//         ctx.response.status = err.statusCode || err.status || 500;
+//         ctx.response.body = err.message;       
 //     }
 // }
-// const main = cxt =>{
-//     cxt.throw(500);
+// const main = ctx =>{
+//     ctx.throw(500);
 // }
 // app.use(handdle);
 
 
 
 // eg17 error
-const main = cxt =>{
+const main = ctx =>{
 
-    cxt.throw(500);
-    // cxt.response.status = 500; // 此方法error事件捕捉不到
+    ctx.throw(500);
+    // ctx.response.status = 500; // 此方法error事件捕捉不到
 }
 
-app.on('error', (err, cxt) =>{
+app.on('error', (err, ctx) =>{
     console.error('server error', err);
 });
 

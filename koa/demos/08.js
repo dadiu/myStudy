@@ -2,8 +2,8 @@ const Koa = require('koa');
 const app = new Koa();
 
 
-const logger = (cxt, next) => {
-    console.log(`${Date.now()} ${cxt.request.method} ${cxt.request.url}`);
+const logger = (ctx, next) => {
+    console.log(`${Date.now()} ${ctx.request.method} ${ctx.request.url}`);
     next();
 }
 

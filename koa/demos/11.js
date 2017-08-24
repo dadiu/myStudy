@@ -2,13 +2,13 @@ const Koa = require('koa');
 const compose = require('koa-compose');
 const app = new Koa();
 
-const logger = (cxt, next) =>{
-    console.log(`${Date.now()} ${cxt.request.method} ${cxt.request.url}`);
+const logger = (ctx, next) =>{
+    console.log(`${Date.now()} ${ctx.request.method} ${ctx.request.url}`);
     next();
 }
 
-const main = cxt =>{
-    cxt.response.body = 'hello word';
+const main = ctx =>{
+    ctx.response.body = 'hello word';
 }
 
 const middlewares = compose([logger, main]);
