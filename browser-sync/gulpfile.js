@@ -13,8 +13,11 @@ const mincss = require('gulp-clean-css')
 
 const jshint = require('gulp-jshint');
 const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
+const es2015 = require('babel-preset-es2015');
+// const browserify = require('browserify');
 
-const path = require("path");   
+const path = require("path");
 
 const PROTS = 30000;
 const basePath = './app/';
@@ -22,19 +25,19 @@ const devPath = './build/';
 const pubPath = './dist/';
 
 let _path = process.argv[2] === 'publish' ? pubPath : devPath; // 是否是开发环境
-let isDist = process.argv[2] === 'publish' ? true : false;      // 是否需要压缩
+let isDist = process.argv[2] === 'publish' ? true : false; // 是否需要压缩
 
 
 
 /** start */
-gulp.task('buildImg', function(){
+gulp.task('buildImg', function () {
 
     return gulp.src(basePath + 'img/**/*.{png,jpg,gif,ico}')
-    .pipe(gulp.dest(_path + 'img'));
+        .pipe(gulp.dest(_path + 'img'));
 
 });
 
-gulp.task('buildCss',function () {
+gulp.task('buildCss', function () {
 
     return gulp.src(basePath + 'scss/*.scss')
         .pipe(sass({
@@ -47,12 +50,14 @@ gulp.task('buildCss',function () {
             debug: false
         }))
         .pipe(gulpIf(isDist, mincss({
-			"compatibility" : "ie6",		//保留ie6及以上兼容写法
-			"advanced" : false,				//类型：Boolean 默认：true [是否开启高级优化（合并选择器等）
-			"keepBreaks" : true,			//类型：Boolean 默认：false [是否保留换行]
-            "keepSpecialComments" : "*"		//保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀
-		})))
-        .pipe(rename({suffix: ".min"}))
+            "compatibility": "ie6", //保留ie6及以上兼容写法
+            "advanced": false, //类型：Boolean 默认：true [是否开启高级优化（合并选择器等）
+            "keepBreaks": true, //类型：Boolean 默认：false [是否保留换行]
+            "keepSpecialComments": "*" //保留所有特殊前缀 当你用autoprefixer生成的浏览器前缀，如果不加这个参数，有可能将会删除你的部分前缀
+        })))
+        .pipe(rename({
+            suffix: ".min"
+        }))
         .pipe(gulp.dest(_path + 'css'))
         .pipe(filter('**/*.css'))
         .pipe(reload({
@@ -61,20 +66,40 @@ gulp.task('buildCss',function () {
 
 })
 
+
+// gulp.task('buildPcJS', function () {
+
+//     return gulp.src(basePath + 'js/test.js')
+//         .pipe(concat("main.js"))
+//         .pipe(jshint())
+//         .pipe(gulpIf(isDist, uglify()))
+//         .pipe(rename({
+//             suffix: ".min"
+//         }))
+//         .pipe(gulp.dest(_path + 'js'))
+//         .pipe(reload({
+//             stream: true
+//         }))
+// })
+
 gulp.task('buildJS', function () {
 
-
     return gulp.src(basePath + 'js/*.js')
-        .pipe(concat("main.js"))
+        .pipe(babel({
+            presets : ['es2015']
+        }))
+        // .pipe(browserify())
+        .pipe(concat("app.js"))
         .pipe(jshint())
         .pipe(gulpIf(isDist, uglify()))
-        .pipe(rename({suffix: ".min"}))
+        .pipe(rename({
+            suffix: ".min"
+        }))
         .pipe(gulp.dest(_path + 'js'))
         .pipe(reload({
             stream: true
         }))
 })
-
 
 gulp.task('copyFile', function () {
 
@@ -85,12 +110,14 @@ gulp.task('copyFile', function () {
         }))
 })
 
-gulp.task('buildClean', function(){
+gulp.task('buildClean', function () {
 
-    let cleanPath = _path === pubPath ? devPath : pubPath; 
+    let cleanPath = _path === pubPath ? devPath : pubPath;
 
-    return gulp.src([cleanPath], { read : false })
-                .pipe(gulpClean())
+    return gulp.src([cleanPath], {
+            read: false
+        })
+        .pipe(gulpClean())
 
 })
 
@@ -100,7 +127,7 @@ gulp.task('browser-sync', function () {
 
     browserSync.init({
         files: "css/*.css",
-        port : PROTS,
+        port: PROTS,
         server: {
             baseDir: path.join(__dirname, _path)
         }
@@ -109,7 +136,7 @@ gulp.task('browser-sync', function () {
 });
 
 // 本地预览
-gulp.task('default', ['buildClean','buildJS', 'buildCss', 'buildImg', 'copyFile', 'browser-sync'], function () {
+gulp.task('default', ['buildClean', 'buildJS', 'buildCss', 'buildImg', 'copyFile', 'browser-sync'], function () {
 
     gulp.watch(basePath + 'scss/*.scss', ['buildCss']);
     gulp.watch(basePath + 'js/*.js', ['buildJS']);
@@ -118,7 +145,7 @@ gulp.task('default', ['buildClean','buildJS', 'buildCss', 'buildImg', 'copyFile'
 })
 
 // 发布
-gulp.task('publish', ['buildClean','buildJS', 'buildCss', 'buildImg', 'copyFile'], function () {
-    
+gulp.task('publish', ['buildClean', 'buildJS', 'buildCss', 'buildImg', 'copyFile'], function () {
+
     console.log("publish ok")
 })
