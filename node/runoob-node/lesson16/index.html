@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form</title>
+</head>
+
+<style>
+    form {
+        padding: 20px;
+        border:1px solid #ddd;
+        background: #eee;
+        margin-bottom:50px;
+    }
+</style>
+<body>
+
+    <p>获取列表</p>
+    <form action="/listUsers" method="get">
+        <input type="submit" value="获取列表" />
+    </form>
+
+    <p>添加</p>
+    <form action="/addUser" method="post">
+        name :
+        <input type="text" name="name" value="test">
+        <br/> password :
+        <input type="text" name="password" value="test password">
+        <br/> profession :
+        <input type="text" name="profession" value="teacher">
+        <br/> id :
+        <input type="text" name="id" value="4">
+        <br/>
+        <input type="submit" value="添加" />
+    </form>
+
+    <p>删除</p>
+    <form action="/deleteUser" method="post">
+        delete number :
+        <input type="text" name="id" value="1">
+        <br/>
+        <input type="submit" value="删除" />
+    </form>
+
+    <p>获取单个</p>
+
+    <form action="/:id" method="get">
+        <input type="submit" value="获取单个" />
+    </form>
+</body>
+
+</html>
