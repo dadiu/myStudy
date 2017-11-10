@@ -16,4 +16,12 @@
 - [lesson13 : get/post请求](lesson13)
 - [lesson14 : 使用 Node 创建 Web 服务器 和 客户端](lesson14)
 - [lesson15 : Express 框架](lesson15) : get请求、post请求、上传文件、cookie管理
-- [lesson16 : RESTful](leeson16) : 
+- [lesson16 : RESTful](leeson16) : 增、删、改、查
+- [lesson17 : node多进程](lesson17) :
+    + child_process.exec(command[, options], callback) : 使用子进程执行命令，缓存子进程的输出，并将子进程的输出以回调函数参数的形式返回。
+    + child_process.spawn(command[, args][, options]) : 使用指定的命令行参数创建新进程
+    + child_process.fork(modulePath[, args][, options])
+- [lesson18 : MySQL](lesson18) : ``不会mysql 暂停``
+    + 学完mysql回城链接：http://www.runoob.com/nodejs/nodejs-mysql.html
+- [lesson19 : MongoDB](lesson19) : ``学会了再来``
+    + 回城链接：http://www.runoob.com/nodejs/nodejs-mongodb.html

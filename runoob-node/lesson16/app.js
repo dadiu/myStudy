@@ -68,10 +68,9 @@ app.post('/addUser', urlencodedParser, function (req, res) {
 
 
 // 删除
-
 app.post('/deleteUser', urlencodedParser, function (req, res) {
 
-    var id = user + req.body.id;
+    var id = 'user' + req.body.id;
 
     fs.readFile(__dirname + '/' + 'users.json', function (err, data) {
 
@@ -90,8 +89,7 @@ app.post('/deleteUser', urlencodedParser, function (req, res) {
 
             } else {
 
-                console.log("not found this key");
-                return;
+                res.end("not found %s" + id);
             }
         }
 
@@ -101,6 +99,31 @@ app.post('/deleteUser', urlencodedParser, function (req, res) {
 
 
 // 获取单个
+app.get('/:id', function (req, res) {
+
+    // url上获取参数 req.query.id http://127.0.0.1:8081/:id?id=2
+    // url上获取链接 req.params.id  http://127.0.0.1:8081/4
+
+    var id = req.params.id !== ":id"?req.params.id : req.query.id;
+    id = 'user' + id;
+
+    console.log(id)
+
+    fs.readFile(__dirname + '/' + 'users.json', function (err, data) {
+
+        let key;
+        data = JSON.parse(data);
+        if (typeof data[id] !== 'undefined') {
+
+            res.end(JSON.stringify(data[id]))
+
+        } else {
+
+            res.end("not found " + id);
+        }
+
+    })
+})
 
 
 var server = app.listen(8081, 'localhost', function () {
