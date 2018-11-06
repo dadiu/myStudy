@@ -1,0 +1,12 @@
+extends  ../layout.pug
+
+block content
+  h1 edit
+  form(method="post", action="/articles/" + article._id + "/update")
+    .form-group
+      label 标题: 
+      input.form-control(name="title", type="text", value=article.title)
+    .form-group
+      label 内容:
+      textarea.form-control(name="body")=article.body
+    input.btn.btn-primary(type="submit", value="更新")

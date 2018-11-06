@@ -1,0 +1,12 @@
+extends  ../layout.pug
+
+block content
+  .jumbotron
+    h3=article.title
+    p.text-muted #{article.uptime} by #{article.authorName}
+    hr
+    p.lead=article.body
+
+  if user && user._id == article.author
+    a.btn.btn-primary.mr-2(href="/articles/" + article._id + '/edit') 编辑
+    //- a.btn.btn-danger.fn-delete(href="javascript:;", data-id=article._id) 删除

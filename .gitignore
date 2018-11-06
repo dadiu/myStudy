@@ -7,3 +7,4 @@ browser-sync/dist/
 */node_modules/
 */**/node_modules/
 scott/website/bower_components/
+node-blog/public/bower_components/

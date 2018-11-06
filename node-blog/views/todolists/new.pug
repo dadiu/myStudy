@@ -1,0 +1,22 @@
+extends  ../layout.pug
+
+block content
+  h1 Add TodoList
+  form(method="post", action="/user/login")
+    .form-group
+      label 时间: 
+      input.form-control(name="day", type="text")
+    .form-group
+      label 内容: 
+      input.form-control(name="item", type="text")
+    .form-group
+      label 状态: 
+      .form-check
+        input#exampleRadios1.form-check-input(type='radio', name='exampleRadios', value='option1', checked='')
+        label.form-check-label(for='exampleRadios1')
+          | Default radio
+      .form-check
+        input#exampleRadios2.form-check-input(type='radio', name='exampleRadios', value='option2')
+        label.form-check-label(for='exampleRadios2')
+          | Second default radio
+    input.btn.btn-primary(type="submit", value="确定")

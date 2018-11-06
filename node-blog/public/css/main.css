@@ -1,0 +1,18 @@
+body {
+    background-color: #fefefe;
+}
+
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.main {
+    /* background-color: #fff; */
+    /* box-shadow: 0 0 3px 2px #eee; */
+    /* padding: 50px; */
+    /* border-radius: 5px; */
+    margin-top: 30px;
+    min-height: 600px;
+}

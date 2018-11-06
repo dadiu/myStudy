@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+  head
+    title Node
+    link(rel="stylesheet", href="/bower_components/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/css/main.css")
+  body
+
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-2
+      .container
+        a.navbar-brand.mr-0.mr-md-2(href='/') Node
+        .navbar-nav-scroll
+          ul.navbar-nav.bd-navbar-nav.flex-row
+            //- li.nav-item.active
+            //-   a.nav-link(href='/') Home 
+            if user
+              li.nav-item
+                a.nav-link(href='/articles/new') Add Article
+              li.nav-item
+                a.nav-link(href='/todolists/new') TodoList
+        ul.navbar-nav.flex-row.ml-md-auto.d-none.d-md-flex
+          if user
+            li.nav-item
+              a.nav-link(href="/")=user.username
+            li.nav-item
+              a.nav-link(href="/user/logout") 退出
+          else  
+            li.nav-item
+              a.nav-link(href="/user/login") 登录
+            li.nav-item
+              a.nav-link(href="/user/register") 注册
+
+
+    .container
+      != messages('message', locals)
+      if errors
+        each error, i in errors
+          p.alert.alert-danger=error.msg
+
+      .main
+        block content
+    
+    .container
+      hr.mt-5
+      #footer
+        p copyright @ 2018
+
+    script(src="/bower_components/jquery/dist/jquery.min.js")
+    script(src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
+    script(src="/js/main.js")

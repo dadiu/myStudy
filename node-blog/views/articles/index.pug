@@ -1,0 +1,13 @@
+extends  ../layout.pug
+
+block content
+  h1 Home
+  ul.list-group
+    each item in articles
+      li.list-group-item
+        div.d-flex.justify-content-between 
+          a(href="/articles/" + item._id)=item.title 
+          if user
+            span=item.uptime
+          else
+            span=item.authorName

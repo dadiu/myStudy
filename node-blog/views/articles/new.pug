@@ -1,0 +1,12 @@
+extends  ../layout.pug
+
+block content
+  h1 Add Article
+  form(method="post", action="/articles/new")
+    .form-group
+      label 标题: 
+      input.form-control(name="title", type="text")
+    .form-group
+      label 内容:
+      textarea.form-control(name="body")
+    input.btn.btn-primary(type="submit", value="发布")
